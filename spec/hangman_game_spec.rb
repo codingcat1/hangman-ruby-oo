@@ -12,6 +12,17 @@ describe Game do
     expect(test_game.word).to eq "tiger"
   end
 
+  it 'should return true and add input letter to correct_guesses array if the letter entered is included in the game word' do
+    test_game = Game.new("tiger")
+    expect(test_game.guess_letter('i')).to eq true
+    expect(test_game.correct_guesses).to eq ['i']
+  end
+
+  it 'should return false and add input letter to wrong_guesses array if the letter entered is not included in the game word' do
+    test_game = Game.new("tiger")
+    expect(test_game.guess_letter('w')).to eq false
+    expect(test_game.wrong_guesses).to eq ['w']
+  end
   #guess_letter
   #takes a letter as an argument, returns true and adds letter
   #to correct_guesses array or false and adds to incorrect_guesses array.
