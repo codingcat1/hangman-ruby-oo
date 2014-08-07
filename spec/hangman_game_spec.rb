@@ -23,9 +23,10 @@ describe Game do
     expect(test_game.guess_letter('w')).to eq false
     expect(test_game.wrong_guesses).to eq ['w']
   end
-  #guess_letter
-  #takes a letter as an argument, returns true and adds letter
-  #to correct_guesses array or false and adds to incorrect_guesses array.
 
+  it 'should return a number of asterisks according to word length' do
+    test_game = Game.new("tiger")
+    expect(test_game.letter_spaces).to eq "*****"
+  end
 
 end

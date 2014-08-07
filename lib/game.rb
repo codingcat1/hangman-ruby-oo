@@ -15,10 +15,12 @@ class Game
     else !@word.include?(@letter)
        @wrong_guesses << @letter
     return false
-
     end
   end
 
+  def letter_spaces
+    @word = ("*" * @word.length)
+  end
 
     # @word = @word.split
     # @word.
