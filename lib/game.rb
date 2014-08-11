@@ -5,25 +5,55 @@ class Game
     @word = word
     @correct_guesses = []
     @wrong_guesses = []
+    # @loss = 6
   end
 
-  def guess_letter(letter)
-    @letter = letter
-    if @word.include?(@letter)
-      @correct_guesses << @letter
-    return true
-    else !@word.include?(@letter)
-       @wrong_guesses << @letter
-    return false
+  def guess_letter(guess_letter)
+    @guess_letter = guess_letter
+    if @word.include?(@guess_letter)
+      @word.split('').each do |letter|
+        if @guess_letter == letter
+          @correct_guesses << letter
+        end
+      end
+      return true
+    else
+      @wrong_guesses << @guess_letter
+      return false
     end
   end
 
-  def letter_spaces
-    @word = ("*" * @word.length)
+  # def correct_guesses
+  #   @correct_guesses = correct_guesses
+  #   letter.each do |x|
+  #     if letter == word
+  #     correct_guesses << letter
+  #     end
+  #   end
+  # end
+
+  # def letter_spaces
+  #   @word = ("*" * @word.length)
+  # end
+
+  def game_loss
+    if wrong_guesses.length == 6
+      'You lose'
+    end
   end
+
+  def game_win
+    if correct_guesses.length == word.length
+      'WINNER WINNER'
+    end
+  end
+
+
+
 
     # @word = @word.split
     # @word.
     # end
-
 end
+
+
